@@ -1,0 +1,13 @@
+/*
+Theme Name:     Unite Child
+Theme URI:      http: //example.com/
+Description:    Дочерняя тема для темы Unite 
+Author:         Alekseii Tsyndiaikin
+Author URI:     http: //example.com/about/
+Template:       unite
+Version:        0.1.0
+*/
+@import url('../unite/style.css');
+body {
+    
+}
