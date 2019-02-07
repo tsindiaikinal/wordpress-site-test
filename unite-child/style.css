@@ -8,6 +8,13 @@ Template:       unite
 Version:        0.1.0
 */
 @import url('../unite/style.css');
-body {
-    
+
+.gallery-columns {
+    display: flex;
+    flex-flow: wrap;
+}
+.film {
+    width: 150px;
+    height: 100px;
+    background-color: red;
 }
