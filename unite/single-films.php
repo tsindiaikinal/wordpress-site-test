@@ -9,11 +9,19 @@ get_header(); ?>
 
 	<div id="primary" class="content-area col-sm-12 col-md-8 <?php echo of_get_option( 'site_layout' ); ?>">
 		<main id="main" class="site-main" role="main">
-		
-		<?php while ( have_posts() ) : the_post(); ?>
-			<?php get_template_part( 'content', 'single' ); ?>
 
-			<?php film_info_output(); ?>
+		<?php while ( have_posts() ) : the_post(); ?>
+			
+			<?php get_template_part( 'content-films', 'single-films' ); ?>
+			<?php while ( have_posts() ) : the_post(); ?>
+			<?php get_template_part( 'content', 'single' ); ?>
+			<p class="price-of-session"><?php echo "Стоимость сеанса: " ?><span><?php the_field('price_of_session'); ?></span></p>
+			<p class="date-release"><?php echo "Дата выхода в прокат: " ?><span><?php the_field('date_release'); ?></span></p>
+			
+			<?php unite_post_nav(); ?>
+			
+			<?php
+			<?php unite_post_nav(); ?>
 			
 			<?php
 				// If comments are open or we have at least one comment, load up the comment template
@@ -21,6 +29,7 @@ get_header(); ?>
 					comments_template();
 				endif;
 			?>
+
 		<?php endwhile; // end of the loop. ?>		
 
 		</main><!-- #main -->

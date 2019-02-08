@@ -18,3 +18,27 @@ Version:        0.1.0
     height: 100px;
     background-color: red;
 }
+
+.price-of-session {
+    margin-top: 40px;
+    /* margin-right: 60px; */
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: right;
+}
+.price-of-session_cena {
+    color:red;
+    font-size: 2.2rem;
+}
+
+.date-release {
+    /* margin-right: 60px; */
+    /* padding-bottom: 50px; */
+    font-size: 1.3rem;
+    text-align: right;
+}
+
+.data-release_date {
+    font-size: 1.4rem;
+    font-weight: bold;
+}
