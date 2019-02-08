@@ -17,8 +17,6 @@ function film_info_output($content) {
         $view_film_field = 
         '<div style="display: block;"><p class="price-of-session">Стоимость сеанса: <span class="price-of-session_cena">'.$my_field_1.'</span></p>'.'<p class="date-release">Дата выхода в прокат: <span class="data-release_date">'.$my_field_2.'</span></p>
         </div>';
-            // echo $my_field_1;
-            // echo $my_field_2; 
         }
         // Вывод всех id и типов постов
 //  $q = new WP_Query('posts_per_page=-1&post_type=any');
@@ -30,6 +28,8 @@ function film_info_output($content) {
 // 	echo '</table>';
 // endif;
 
-        return $content . $view_film_field . $post_id;
+// $post_id - ВЫВОДИТ id КАЖДЫЙ НА СВОЕЙ СТРАНИЦЕ КАК НОМЕР СТРАНИЦЫ если добавить в return
+
+        return $content . $view_film_field;
 }
 ?>
