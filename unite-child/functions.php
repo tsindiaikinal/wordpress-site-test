@@ -12,7 +12,7 @@ function theme_enqueue_styles() {
     );
 }
 //
-// my function: registered new type data
+// Моя функция: регистрирует новый тип данных и таксономии
 function films_library_init() {
 	    $args = array(
 	      'label' => 'Фильмы',
@@ -40,24 +40,10 @@ function films_library_init() {
 	}
 	add_action( 'init', 'films_library_init' );
 
-// 	function create_posttype() {
-//   register_post_type( 'acme_product',
-//     array(
-//       'labels' => array(
-//         'name' => __( 'Продукты' ),
-//         'singular_name' => __( 'Продукт' )
-//       ),
-//       'public' => true,
-//       'has_archive' => true,
-//       'rewrite' => array('slug' => 'products'),
-//     )
-//   );
-// }
-// add_action( 'init', 'create_posttype' );
 
 add_action('init', 'create_taxonomy');
 function create_taxonomy(){
-	// список параметров: http://wp-kama.ru/function/get_taxonomy_labels
+	// список параметров можно посмотреть на: http://wp-kama.ru/function/get_taxonomy_labels
 	register_taxonomy('gengres', array('cinema'), array(
 		'label'                 => '', // определяется параметром $labels->name
 		'labels'                => array(
@@ -88,7 +74,7 @@ function create_taxonomy(){
 		'rewrite'               => true,
 		//'query_var'             => $taxonomy, // название параметра запроса
 		'capabilities'          => array(),
-		'meta_box_cb'           => false, // callback функция. Отвечает за html код метабокса (с версии 3.8): post_categories_meta_box или post_tags_meta_box. Если указать false, то метабокс будет отключен вообще
+		'meta_box_cb'           => post_categories_meta_box, // callback функция. Отвечает за html код метабокса (с версии 3.8): post_categories_meta_box или post_tags_meta_box. Если указать false, то метабокс будет отключен вообще
 		'show_admin_column'     => false, // Позволить или нет авто-создание колонки таксономии в таблице ассоциированного типа записи. (с версии 3.5)
 		'_builtin'              => false,
 		'show_in_quick_edit'    => null, // по умолчанию значение show_ui
@@ -128,7 +114,7 @@ function create_cinema_taxonomies(){
 		'rewrite'               => true,
 		//'query_var'             => $taxonomy, // название параметра запроса
 		'capabilities'          => array(),
-		'meta_box_cb'           => false,
+		'meta_box_cb'           => post_categories_meta_box,
 		'show_admin_column'     => false,
 		'_builtin'              => false,
 		'show_in_quick_edit'    => null, 
@@ -163,7 +149,7 @@ function create_cinema_taxonomies(){
 		'rewrite'               => true,
 		//'query_var'             => $taxonomy, // название параметра запроса
 		'capabilities'          => array(),
-		'meta_box_cb'           => false,
+		'meta_box_cb'           => post_categories_meta_box,
 		'show_admin_column'     => false,
 		'_builtin'              => false,
 		'show_in_quick_edit'    => null, 
@@ -174,7 +160,7 @@ function create_cinema_taxonomies(){
 			'name'              => 'Актеры',
 			'singular_name'     => 'Актер',
 			'search_items'      => 'Поиск по актерам',
-			'all_items'         => '',
+			'all_items'         => 'Все актеры',
 			'view_item '        => 'Показать актера',
 			'parent_item'       => 'Фильмы',
 			'parent_item_colon' => 'Parent',
@@ -198,7 +184,7 @@ function create_cinema_taxonomies(){
 		'rewrite'               => true,
 		//'query_var'             => $taxonomy, // название параметра запроса
 		'capabilities'          => array(),
-		'meta_box_cb'           => false,
+		'meta_box_cb'           => post_categories_meta_box,
 		'show_admin_column'     => false,
 		'_builtin'              => false,
 		'show_in_quick_edit'    => null, 

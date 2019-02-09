@@ -274,7 +274,7 @@ function of_get_option( $name, $default = false ) {
   return $default;
 }
 endif;
-
+add_theme_support( 'post-thumbnails' );
 
 
 

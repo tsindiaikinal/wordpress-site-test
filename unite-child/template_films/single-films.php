@@ -15,8 +15,6 @@ get_header(); ?>
 			<?php get_template_part( 'content-films', 'single-films' ); ?>
 			<?php while ( have_posts() ) : the_post(); ?>
 			<?php get_template_part( 'content', 'single' ); ?>
-			<p class="price-of-session"><?php echo "Стоимость сеанса: " ?><span><?php the_field('price_of_session'); ?></span></p>
-			<p class="date-release"><?php echo "Дата выхода в прокат: " ?><span><?php the_field('date_release'); ?></span></p>
 			
 			<?php unite_post_nav(); ?>
 			
