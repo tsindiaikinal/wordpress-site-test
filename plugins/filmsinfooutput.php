@@ -9,7 +9,7 @@
 *License: GPLv2
 */
 add_action('the_content', 'film_info_output' );
-// Выводит информацию к фильму (цена, дата выхода)
+// Выводит информацию к фильму (жанр, страна, цена, дата выхода)
 function film_info_output($content) {
     $post_id = get_the_ID(); 
     if(($post_id != 159) && ($post_id != 158) && ($post_id != 153)) {
@@ -18,6 +18,19 @@ function film_info_output($content) {
         $view_film_field = 
         '<div style="display: block;"><p class="price-of-session">Стоимость сеанса: <span class="price-of-session_cena">'.$my_field_1.'</span></p>'.'<p class="date-release">Дата выхода в прокат: <span class="data-release_date">'.$my_field_2.'</span></p>
         </div>';
+
+        $cur_terms = get_the_terms( $post->ID, 'gengres' );
+	if( is_array( $cur_terms ) ){
+		foreach( $cur_terms as $cur_term ){
+			echo 'Жанр: ' . '<a href="'. get_term_link( $cur_term->term_id, $cur_term->taxonomy ) .'">'. $cur_term->name .'</a> |';
+		}
+	}
+	$cur_terms = get_the_terms( $post->ID, 'countries' );
+	if( is_array( $cur_terms ) ){
+		foreach( $cur_terms as $cur_term ){
+			echo ' Страна: ' . '<a href="'. get_term_link( $cur_term->term_id, $cur_term->taxonomy ) .'">'. $cur_term->name .'</a>';
+		}
+	}
         }
         // Вывод всех id и типов постов
 //  $q = new WP_Query('posts_per_page=-1&post_type=any');
@@ -51,22 +64,6 @@ if($post_id == 91) {
     $post33 = get_post( 33 );
     $text33 = $post33->post_content;
     
-    // $posts = get_posts( array(
-    //     'numberposts' => 20,
-    //     'offset' => 1,
-    //     'category'    => 'Фильмы',
-    //     'category_name' => array('slug' => 'films'),
-    //     'orderby'     => 'date',
-    //     'order'       => 'DESC',
-    //     'include'     => 207,98,96,76,74,71,44,37,33,
-    //     'exclude'     => array(),
-    //     'meta_key'    => '',
-    //     'meta_value'  =>'',
-    //     'post_type'   => 'cinema',
-    //     'post_status' => 'inherit',
-    //     'suppress_filters' => false,
-    //     ) );
-        
         return $text207 . $text98 . $text96 . $text76 . $text74 . $text71 . $text44 . $text37 . $text33;
     }
     
