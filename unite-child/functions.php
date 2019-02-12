@@ -58,7 +58,7 @@ function films_library_init() {
 	    register_post_type( 'cinema', $args );
 	}
 	add_action( 'init', 'films_library_init' );
-
+// **********************************************
 add_action( 'init', 'create_cinema_taxonomies');
 function create_cinema_taxonomies(){
 	register_taxonomy('gengres', array('cinema'), array(
@@ -205,12 +205,21 @@ function create_cinema_taxonomies(){
 		) );
 }
 
-
-function add_taxonomy_films(){
-	register_taxonomy_for_object_type( 'gengres', 'cinema');
-}
-add_action( 'init', 'add_taxonomy_films' );
-
+$posts = get_posts( array(
+        'numberposts' => 20,
+        'offset' => 1,
+        'category'    => -1,
+        'category_name' => array('slug' => 'films'),
+        'orderby'     => 'date',
+        'order'       => 'DESC',
+        // 'include'     => '207,98,96,76,74,71,44,37,33',
+        'exclude'     => array(),
+        'meta_key'    => '',
+        'meta_value'  =>'',
+        'post_type'   => 'cinema',
+        'post_status' => 'inherit',
+        'suppress_filters' => false,
+		) );
 
 // $taxonomies = get_taxonomies();
 // foreach( $taxonomies as $taxonomy ) {

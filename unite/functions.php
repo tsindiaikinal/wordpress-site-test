@@ -276,5 +276,8 @@ function of_get_option( $name, $default = false ) {
 endif;
 add_theme_support( 'post-thumbnails' );
 
-
-
+function true_misha_func( $atts ){
+	return site_url(); // никаких echo, только return
+}
+ 
+add_shortcode( 'misha', 'true_misha_func' );
