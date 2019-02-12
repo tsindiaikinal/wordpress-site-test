@@ -204,24 +204,3 @@ function create_cinema_taxonomies(){
 		'show_in_quick_edit'    => null, 
 		) );
 }
-
-$posts = get_posts( array(
-        'numberposts' => 20,
-        'offset' => 1,
-        'category'    => -1,
-        'category_name' => array('slug' => 'films'),
-        'orderby'     => 'date',
-        'order'       => 'DESC',
-        // 'include'     => '207,98,96,76,74,71,44,37,33',
-        'exclude'     => array(),
-        'meta_key'    => '',
-        'meta_value'  =>'',
-        'post_type'   => 'cinema',
-        'post_status' => 'inherit',
-        'suppress_filters' => false,
-		) );
-
-// $taxonomies = get_taxonomies();
-// foreach( $taxonomies as $taxonomy ) {
-// 	echo '<p>'. $taxonomy. '</p>';
-// }
