@@ -63,8 +63,15 @@ if($post_id == 91) {
     $text37 = $post37->post_content;
     $post33 = get_post( 33 );
     $text33 = $post33->post_content;
+    $default_attr = array(
+	'src'   => $src,
+	'class' => "attachment-$size",
+	'alt'   => trim(strip_tags( $attachment->post_excerpt )),
+	'title' => trim(strip_tags( $attachment->post_title )),
+);
+$thumbnail_img = get_the_post_thumbnail( 37, medium, $default_attr );
     
-        return $text207 . $text98 . $text96 . $text76 . $text74 . $text71 . $text44 . $text37 . $text33;
+        return $text207 . $text98 . $text96 . $text76 . $text74 . $text71 . $text44 . $text37 . $text33 . $thumbnail_img;
     }
     
     return $content . $view_film_field; // $post_id

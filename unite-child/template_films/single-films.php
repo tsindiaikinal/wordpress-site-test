@@ -1,8 +1,8 @@
 <?php
 /**
  * The Template for displaying all single posts.
- *
- * @package unite
+ * Template Name: Single page films
+ * Template Post Type: cinema, post
  */
 
 get_header(); ?>
@@ -11,24 +11,15 @@ get_header(); ?>
 		<main id="main" class="site-main" role="main">
 
 		<?php while ( have_posts() ) : the_post(); ?>
-			
-			<?php get_template_part( 'content-films', 'single-films' ); ?>
-			<?php while ( have_posts() ) : the_post(); ?>
-			<?php get_template_part( 'content', 'single' ); ?>
-			
-			<?php unite_post_nav(); ?>
-			
-			<?php
-			<?php unite_post_nav(); ?>
-			
+			<?php get_template_part( 'content', 'sinema' ); ?>
 			<?php
 				// If comments are open or we have at least one comment, load up the comment template
 				if ( comments_open() || '0' != get_comments_number() ) :
 					comments_template();
 				endif;
-			?>
-
+				?>
 		<?php endwhile; // end of the loop. ?>		
+		<?php unite_post_nav(); ?>			
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
